@@ -4,6 +4,8 @@ import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { Link } from "expo-router";
+import { View, Text } from "react-native";
 
 export default function HomeScreen() {
   return (
@@ -17,11 +19,16 @@ export default function HomeScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Hello !</ThemedText>
+        <View>
+          <Link href="/">About</Link>
+        </View>
+        <ThemedText type="title">Hello wrfs sdsd!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        <Text className="text-secondary-200">Aora</Text>
+
         <ThemedText>
           Edit{" "}
           <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}

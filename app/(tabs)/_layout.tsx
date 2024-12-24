@@ -19,17 +19,18 @@ export default function TabLayout() {
           headerShown: false,
           tabBarButton: HapticTab,
           tabBarBackground: TabBarBackground,
-          tabBarStyle: Platform.select({
-            ios: {
-              // Use a transparent background on iOS to show the blur effect
-              position: "absolute",
-            },
-            default: {},
-          }),
+          // tabBarStyle: Platform.select({
+          //   ios: {
+          //     // Use a transparent background on iOS to show the blur effect
+          //     position: "absolute",
+          //   },
+          //   default: {},
+          // }),
+          tabBarStyle: {},
         }}
       >
         <Tabs.Screen
-          name="index"
+          name="home"
           options={{
             title: "Home",
             tabBarIcon: ({ color }) => (
@@ -42,16 +43,37 @@ export default function TabLayout() {
           options={{
             title: "Explore",
             tabBarIcon: ({ color }) => (
-              <IconSymbol size={28} name="paperplane.fill" color={color} />
+              <IconSymbol
+                size={28}
+                name={"paperplane.shopping-cart" as any}
+                color={color}
+              />
             ),
           }}
         />
         <Tabs.Screen
-          name="test"
+          name="about"
           options={{
-            title: "Test",
+            title: "About",
             tabBarIcon: ({ color }) => (
-              <IconSymbol size={28} name="paperplane.fill" color={color} />
+              <IconSymbol
+                size={28}
+                name={"house.info-with-circle" as any}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="account"
+          options={{
+            title: "Account",
+            tabBarIcon: ({ color }) => (
+              <IconSymbol
+                size={28}
+                name={"icon.account" as any}
+                color={color}
+              />
             ),
           }}
         />
