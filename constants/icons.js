@@ -11,6 +11,11 @@ import logout from "../assets/icons/logout.png";
 import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
+// car
+import email from "../assets/icons/car/email.png";
+import person from "../assets/icons/car/person.png";
+import lock from "../assets/icons/car/lock.png";
+import check from "../assets/icons/car/check.png";
 
 export default {
   play,
@@ -26,4 +31,8 @@ export default {
   logout,
   eyeHide,
   eye,
+  email,
+  person,
+  lock,
+  check,
 };

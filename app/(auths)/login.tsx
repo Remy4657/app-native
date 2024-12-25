@@ -1,137 +1,80 @@
-import React, { useState } from "react";
-import { View, TextInput, Text, TouchableOpacity, Image } from "react-native";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import { useCallback, useState } from "react";
+import { Alert, Image, StyleSheet, ScrollView, Text, View } from "react-native";
 
-const LoginView = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+import CustomButton from "@/components/car/CustomButton";
+import InputField from "@/components/car/InputField";
+import icons from "@/constants/icons";
+import images from "@/constants/images";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedView } from "@/components/ThemedView";
 
-  const handleLoginPress = () => {
-    // Perform login logic here
-  };
+const SignIn = () => {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
 
   return (
-    <View style={styles.container as any}>
-      <View style={styles.logoContainer as any}>
-        <Image
-          source={{
-            uri: "https://www.bootdey.com/img/Content/avatar/avatar5.png",
-          }}
-          style={styles.logo as any}
-        />
+    <View className="flex-1 bg-pink-100 w-full h-full">
+      <View className="relative w-full">
+        <Image source={images.signUpCar} className="z-0 w-full h-[250px]" />
+
+        <Text className="text-2xl text-black font-JakartaSemiBold absolute bottom-5 left-5">
+          Welcome 👋
+        </Text>
       </View>
-      <View style={styles.card as any}>
-        <View style={styles.inputContainer as any}>
-          <TextInput
-            style={styles.input}
-            placeholder="Username"
-            onChangeText={(text) => setUsername(text)}
-            value={username}
-          />
-        </View>
-        <View style={styles.inputContainer as any}>
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            onChangeText={(text) => setPassword(text)}
-            value={password}
-            secureTextEntry={true}
-          />
-        </View>
-        <TouchableOpacity
-          style={styles.button as any}
-          onPress={handleLoginPress}
-        >
-          <Text style={styles.buttonText as any}>Log In</Text>
-        </TouchableOpacity>
-        <Text>Are you don't have account?</Text>
-        <Link href="/register">Sign up</Link>
+      <View className="p-5">
+        <InputField
+          label="Email"
+          icon={icons.email}
+          placeholder="Enter email"
+          textContentType="emailAddress"
+          value={form.email}
+          onChangeText={(value) => setForm({ ...form, email: value })}
+        />
+
+        <InputField
+          label="Password"
+          icon={icons.lock}
+          placeholder="Enter password"
+          secureTextEntry={true}
+          textContentType="password"
+          value={form.password}
+          onChangeText={(value) => setForm({ ...form, password: value })}
+        />
+
+        <CustomButton title="Sign In" className="mt-6" />
+
+        <Text className="text-lg text-center text-general-200 mt-10">
+          Don't have an account?
+          <Link href="/register" className="text-blue-600">
+            <Text> Sign Up</Text>
+          </Link>
+        </Text>
       </View>
     </View>
   );
 };
-
-const styles = {
-  container: {
-    flex: 1,
+export default SignIn;
+const styles = StyleSheet.create({
+  titleContainer: {
+    flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fff",
+    gap: 8,
   },
-  logoContainer: {
-    alignItems: "center",
-    marginTop: 120,
-    marginBottom: 10,
+  stepContainer: {
+    gap: 8,
+    marginBottom: 8,
   },
-  logo: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    resizeMode: "contain",
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+  reactLogo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: "absolute",
   },
-  card: {
-    borderRadius: 10,
-    backgroundColor: "#eee",
-    margin: 10,
-    padding: 15,
-    width: "80%",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    alignItems: "center",
-    justifyContent: "center",
+  p_0: {
+    padding: "0px" as any,
   },
-  inputContainer: {
-    borderRadius: 10,
-    backgroundColor: "#eee",
-    margin: 10,
-    padding: 15,
-    width: "80%",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  input: {
-    fontSize: 16,
-  },
-  button: {
-    marginTop: 10,
-    backgroundColor: "#0066cc",
-    borderRadius: 10,
-    padding: 15,
-    width: "80%",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  buttonText: {
-    fontSize: 16,
-    color: "#fff",
-    textAlign: "center",
-  },
-};
-
-export default LoginView;
+});

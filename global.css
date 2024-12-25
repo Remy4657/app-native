@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .hello {
+  color: red;
+}
+.r-padding-494qqr {
+  padding: 0px;
+  height: 100vh;
+}
+.r-padding-494qqr > div {
+  padding: 20px;
+}
+div:has(div.r-padding-494qqr) {
+  height: 100vh;
+} */
