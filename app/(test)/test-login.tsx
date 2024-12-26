@@ -11,7 +11,7 @@ const LoginView = () => {
   };
 
   return (
-    <View style={styles.container as any}>
+    <View style={styles.container as any} className="bg-slate-500">
       <View style={styles.logoContainer as any}>
         <Image
           source={{
@@ -55,7 +55,6 @@ const styles = {
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#fff",
   },
   logoContainer: {
     alignItems: "center",

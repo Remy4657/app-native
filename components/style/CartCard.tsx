@@ -6,7 +6,7 @@ const CartCard = ({ item, handleDelete }: { item: any; handleDelete: any }) => {
     "https://res.cloudinary.com/dlc5c1ycl/image/upload/v1710567613/cwlk21f74nd9iamrlzkh.png";
   return (
     <View style={styles.card}>
-      <Image source={{ uri: item.image }} style={styles.image} />
+      <Image source={item.image} style={styles.image} />
       <View style={styles.content}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.price}>${item.price}</Text>
@@ -21,7 +21,7 @@ const CartCard = ({ item, handleDelete }: { item: any; handleDelete: any }) => {
       </View>
       <TouchableOpacity onPress={() => handleDelete(item.id)}>
         <Image
-          source={require("../assets/deleteIcon.png")}
+          source={require("../../assets/images/style/deleteIcon.png")}
           style={styles.deleteIcon}
         />
       </TouchableOpacity>

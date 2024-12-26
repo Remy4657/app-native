@@ -1,9 +1,21 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 
-const ProductCard = ({ item }: { item: any }) => {
+type ProductProps = {
+  item: any;
+  handleProductClick: (item: any) => void; // Xác định kiểu là một function
+};
+const ProductCard: React.FC<ProductProps> = (
+  { item }: { item: any },
+  handleProductClick: { handleProductClick: (item: any) => void }
+) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        handleProductClick(item);
+      }}
+    >
       <Image source={{ uri: item.image }} style={styles.coverImage} />
       <View style={styles.contentContainer}>
         <Text style={styles.title}>{item.title}</Text>

@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   View,
+  Animated,
 } from "react-native";
 import React, { useState } from "react";
 import LinearGradient from "react-native-linear-gradient";
@@ -16,17 +17,32 @@ import data from "@/assets/data/data.json";
 import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+  // const AnimatedLinearGradient =
+  //   Animated.createAnimatedComponent(LinearGradient);
   const [products, setProducts] = useState(data.products);
   const navigation = useNavigation();
-  // const handleProductDetails = (item: any) => {
-  //   navigation.navigate("PRODUCT_DETAILS", { item });
-  // };
+
+  const handleProductDetailsClick = (item: any) => {
+    navigation.navigate("detail-product", { item });
+  };
 
   return (
     <View style={styles.container}>
+      {/* <AnimatedLinearGradient
+        colors={["rgba(255,255,255, 0)", "rgba(255,255,255, 1)"]}
+        style={{ height: 30 }}
+      >
+        jfgjf
+      </AnimatedLinearGradient> */}
       {/* header */}
 
       {/* <Tags /> */}
+      {/* <LinearGradient
+        colors={["#4c669f", "#3b5998", "#192f6a"]}
+        style={styles.linearGradient}
+      >
+        <Text style={styles.buttonText}>Sign in with Facebook</Text>
+      </LinearGradient> */}
 
       <FlatList
         ListHeaderComponent={
@@ -36,10 +52,10 @@ const HomeScreen = () => {
               <View>
                 <Text style={styles.headingText}>Match Your Style</Text>
                 <View style={styles.inputContainer}>
-                  {/* <Image
-                    source={require("../assets/search.png")}
+                  <Image
+                    source={require("../../assets/images/style/search.png")}
                     style={styles.searchIcon}
-                  /> */}
+                  />
                   <TextInput placeholder="Search" style={styles.textInput} />
                 </View>
               </View>
@@ -52,7 +68,7 @@ const HomeScreen = () => {
         renderItem={({ item }) => (
           <ProductCard
             item={item}
-            //   handleProductClick={handleProductDetails}
+            handleProductClick={handleProductDetailsClick}
             //   toggleFavorite={toggleFavorite}
             //
           />
@@ -71,7 +87,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     padding: 20,
   },
 
@@ -95,5 +111,19 @@ const styles = StyleSheet.create({
   },
   textInput: {
     fontSize: 18,
+  },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: "Gill Sans",
+    textAlign: "center",
+    margin: 10,
+    color: "#ffffff",
+    backgroundColor: "transparent",
   },
 });

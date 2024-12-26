@@ -15,9 +15,13 @@ const SignIn = () => {
     password: "",
   });
 
+  const handleSignIn = () => {
+    router.replace("/(tabs)/about");
+  };
+
   return (
-    <View className="flex-1 bg-pink-100 w-full h-full">
-      <View className="relative w-full">
+    <View className="bg-pink-100" style={styles.container}>
+      <View className="">
         <Image source={images.signUpCar} className="z-0 w-full h-[250px]" />
 
         <Text className="text-2xl text-black font-JakartaSemiBold absolute bottom-5 left-5">
@@ -44,7 +48,7 @@ const SignIn = () => {
           onChangeText={(value) => setForm({ ...form, password: value })}
         />
 
-        <CustomButton title="Sign In" className="mt-6" />
+        <CustomButton title="Sign In" onPress={handleSignIn} className="mt-6" />
 
         <Text className="text-lg text-center text-general-200 mt-10">
           Don't have an account?
@@ -62,6 +66,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
+  },
+  container: {
+    flex: 1,
   },
   stepContainer: {
     gap: 8,

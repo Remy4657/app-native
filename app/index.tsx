@@ -7,6 +7,8 @@ const Page = () => {
     <View className="flex-1 items-center justify-center bg-pink-100">
       <Link href="/home">Home</Link>
       <Link href="/login">Login</Link>
+      <Link href="/cart">Cart</Link>
+      <Link href="/detail-product">detail-product</Link>
 
       <Text className="text-red-600">Aora</Text>
     </View>
