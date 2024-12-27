@@ -8,7 +8,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Link } from "expo-router";
 
-export default function TabTwoScreen() {
+export default function AccountTab() {
   return (
     <ThemedView style={styles.titleContainer}>
       <Text>ACCOUNT</Text>

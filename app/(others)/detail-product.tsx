@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useContext, useState } from "react";
 import LinearGradient from "react-native-linear-gradient";
 import Header from "@/components/style/Header";
-import { Link, router } from "expo-router";
+import { Link, router, useGlobalSearchParams } from "expo-router";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Button } from "@react-navigation/elements";
 // import { addToCart } from "../utils/helper";
@@ -36,25 +36,26 @@ const ProductDetailsScreen = () => {
     //   product.color = selectedColor;
     //   product.size = selectedSize;
     //   addToCartItem(product);
-    router.replace("/(others)/cart");
-    //navigation.navigate("cart", item);
+    router.replace("/cart");
+    //navigation.navigate("cart");
   };
+  //console.log("route.params.item: ", route?.params?.item);
+  const searchParams = useGlobalSearchParams();
+  const { value } = useGlobalSearchParams();
+  const item = route?.params?.item;
+  console.log("item: ", item);
   return (
     <View className="p-5 justify-between h-full">
       <View>
         <Header isCart={false} />
       </View>
       <View style={styles.imageContainer} className="test">
-        <Image
-          source={product.image}
-          style={styles.coverImage}
-          className="test"
-        />
+        <Image source={item.image} style={styles.coverImage} className="test" />
       </View>
       <View style={styles.contentContainer}>
         <View style={styles.textContainer}>
-          <Text style={styles.fontText}>{product.title}</Text>
-          <Text style={styles.fontText}>${product.price}</Text>
+          <Text style={styles.fontText}>{item.title}</Text>
+          <Text style={styles.fontText}>${item.price}</Text>
         </View>
         <Text style={[styles.fontText, styles.sizeText]}>Size</Text>
         {/* size container */}

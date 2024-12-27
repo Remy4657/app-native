@@ -7,7 +7,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
 import { View, Text } from "react-native";
 
-export default function HomeScreen() {
+export default function HomeTab() {
   return (
     <>
       <View className="h-full bg-orange-600">

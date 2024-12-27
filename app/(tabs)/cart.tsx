@@ -11,7 +11,7 @@ import Header from "@/components/style/Header";
 import CartCard from "@/components/style/CartCard";
 //import { CartContext } from "../context/CartContext";
 
-const CartScreen = () => {
+const CartTab = () => {
   //const { cartItems, deleteCartItem, totalPrice } = useContext(CartContext);
   const [cartItems, setCartItems] = useState([
     {
@@ -82,7 +82,7 @@ const CartScreen = () => {
   );
 };
 
-export default CartScreen;
+export default CartTab;
 
 const styles = StyleSheet.create({
   container: {

@@ -5,10 +5,7 @@ type ProductProps = {
   item: any;
   handleProductClick: (item: any) => void; // Xác định kiểu là một function
 };
-const ProductCard: React.FC<ProductProps> = (
-  { item }: { item: any },
-  handleProductClick: { handleProductClick: (item: any) => void }
-) => {
+const ProductCard: React.FC<ProductProps> = ({ item, handleProductClick }) => {
   return (
     <TouchableOpacity
       style={styles.container}

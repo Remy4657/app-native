@@ -15,15 +15,19 @@ import Tags from "@/components/style/Tags";
 import ProductCard from "@/components/style/ProductCard";
 import data from "@/assets/data/data.json";
 import { useNavigation } from "@react-navigation/native";
+import { Link, router } from "expo-router";
+import { Button } from "@react-navigation/elements";
 
-const HomeScreen = () => {
+const AboutTab = () => {
   // const AnimatedLinearGradient =
   //   Animated.createAnimatedComponent(LinearGradient);
   const [products, setProducts] = useState(data.products);
   const navigation = useNavigation();
 
   const handleProductDetailsClick = (item: any) => {
+    console.log(navigation.getState());
     navigation.navigate("detail-product", { item });
+    //router.replace("/(others)/detail-product", { item });
   };
 
   return (
@@ -76,14 +80,14 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
       />
       <View>
-        {/* <Text>HomeScreen</Text>
-        <Text>HomeScreen</Text> */}
+        {/* <Text>AboutTab</Text>
+        <Text>AboutTab</Text> */}
       </View>
     </View>
   );
 };
 
-export default HomeScreen;
+export default AboutTab;
 
 const styles = StyleSheet.create({
   container: {
